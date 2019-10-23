@@ -30,4 +30,4 @@ spec:
     - selector: {}
       http01:
         ingress:
-          class: nginx # <--------------------------------------- #################### CHANGE THIS IF NOT USING NGINX INGRESS CONTROLLER ######################
+          class: nginx # <---- #################### CHANGE THIS IF NOT USING NGINX INGRESS CONTROLLER ######################
