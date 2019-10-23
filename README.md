@@ -8,6 +8,9 @@ Using [this article](https://www.digitalocean.com/community/tutorials/how-to-set
 ## The article linked above, but converted to markdown:
 Just in case they change anything...
 
+- Instead of using the snippets in the article below, you can use the manifests in this repo
+- **There are a handful of URLs that you will need to change, though!**
+
 ---
 
 ```
