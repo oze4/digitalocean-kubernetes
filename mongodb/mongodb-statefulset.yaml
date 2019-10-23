@@ -9,7 +9,7 @@ spec:
     metadata:
       labels:
         role: mongo
-        environment: test
+        environment: ost-mongo-00
     spec:
       terminationGracePeriodSeconds: 10
       containers:
@@ -30,7 +30,7 @@ spec:
           image: cvallance/mongo-k8s-sidecar
           env:
             - name: MONGO_SIDECAR_POD_LABELS
-              value: "role=mongo,environment=test"
+              value: "role=mongo,environment=ost-mongo-00"
   volumeClaimTemplates:
   - metadata:
       name: mongo-persistent-storage
