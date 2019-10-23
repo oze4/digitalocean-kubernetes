@@ -36,15 +36,15 @@ kind: Ingress
 metadata:
   name: echo-ingress
   annotations:  
-    kubernetes.io/ingress.class: nginx # <----------------------------- #### CHANGE THIS IF NOT USING NGINX INGRESS CONTROLLER ####
-    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer" # <--- #### CHANGE THIS TO MATCH YOUR ClusterIssuer ###
+    kubernetes.io/ingress.class: nginx # <----------------------------- # CHANGE THIS IF NOT USING NGINX INGRESS CONTROLLER
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer" # <--- # CHANGE THIS TO MATCH YOUR ClusterIssuer
 spec:
   tls:
   - hosts:
-    - echo.example.com # <-------------------------------------------- #### CHANGE THIS TO YOUR DOMAIN ####
-    secretName: letsencrypt-prod # <---------------------------------- ####** THIS MUST BE UNIQUE PER INGRESS!!! **####
+    - echo.example.com # <-------------------------------------------- # CHANGE THIS TO YOUR DOMAIN
+    secretName: letsencrypt-prod # <---------------------------------- # THIS MUST BE UNIQUE PER INGRESS!!!
   rules:
-  - host: echo.example.com # <---------------------------------------- #### CHANGE THIS TO YOUR DOMAIN ####
+  - host: echo.example.com # <---------------------------------------- # CHANGE THIS TO YOUR DOMAIN
     http:
       paths:
       - backend:
