@@ -3,3 +3,5 @@
  */
  
 kubectl label namespace kube-system certmanager.k8s.io/disable-validation="true"
+
+kubectl label namespace kube-system cert-manager.io/disable-validation="true"
