@@ -2,7 +2,7 @@
  * RUN THIS COMMAND
  */
 
-// FOR VERSION 0.11.0
+// FOR VERSION 0.11.0 (recommended)
 kubectl label namespace kube-system cert-manager.io/disable-validation="true"
 
 
