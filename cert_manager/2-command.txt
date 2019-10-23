@@ -1,0 +1,5 @@
+/**
+ * RUN THIS COMMAND
+ */
+ 
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation="true"
