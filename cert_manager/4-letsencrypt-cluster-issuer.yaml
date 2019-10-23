@@ -1,13 +1,15 @@
 # ----------------------------------------------------------------------------------------------------------
-#                     ~~ Example of how to use a ClusterIssuer in an Ingress resource ~~
+#                     ~~ Example of how to use a `ClusterIssuer` in an Ingress resource ~~
 # ----------------------------------------------------------------------------------------------------------
-# ...
+# // some-ingress-resource.yaml
+# 
+# kind: Ingress
 # metadata:
-#   name: echo-ingress
+#   name: some-ingress-resource
 #   annotations:  
-#     kubernetes.io/ingress.class: nginx # <-- If you're using nginx Ingress Controller (traefik, etc..)
+#     kubernetes.io/ingress.class: nginx # <-- If you're using NGINX Ingress Controller (traefik, etc..)
 #     cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
-# ...
+#
 # ----------------------------------------------------------------------------------------------------------
 
 apiVersion: cert-manager.io/v1alpha2
