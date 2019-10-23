@@ -4,4 +4,4 @@
  
 helm repo add jetstack https://charts.jetstack.io
 
-helm install --name cert-manager --namespace kube-system jetstack/cert-manager --version v0.8.0
+helm install --name cert-manager --namespace kube-system jetstack/cert-manager --version v0.11.0
