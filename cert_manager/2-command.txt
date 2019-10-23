@@ -1,7 +1,10 @@
 /**
  * RUN THIS COMMAND
  */
- 
-kubectl label namespace kube-system certmanager.k8s.io/disable-validation="true"
 
+// FOR VERSION 0.11.0
 kubectl label namespace kube-system cert-manager.io/disable-validation="true"
+
+
+// FOR VERSION 0.08
+kubectl label namespace kube-system certmanager.k8s.io/disable-validation="true"
