@@ -16,16 +16,14 @@ apiVersion: cert-manager.io/v1alpha2
 kind: ClusterIssuer
 metadata: 
   name: letsencrypt-cluster-issuer # <-------------------- # Ingresses that use this ClusterIssuer must specify this
-spec:                                                      # under annotations (see the top of this file for an example)
+spec:                                                      ## under annotations (see the top of this file for an example)
   acme:
     server: https://acme-v02.api.letsencrypt.org/directory # The ACME server URL
     email: email@email.com # <---------------------------- # CHANGE THIS - EMAIL USED FOR LETSENCRYPT REGISTRATION
-    # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
-      name: letsencrypt-prod # <-------------------------- # CHANGE THIS
-    # Enable the HTTP-01 challenge provider
-    solvers:
-    - selector: {}
+      name: letsencrypt-prod # <-------------------------- # CHANGE THIS (Name of a secret used to store the ACME account private key)
+    solvers: # <------------------------------------------ # Enables the HTTP-01 challenge provider 
+    - selector: {}                                         ## (HTTP-01 does not work for wildcard certs)
       http01:
         ingress:
           class: nginx # <-------------------------------- # CHANGE THIS IF NOT USING NGINX INGRESS CONTROLLER
