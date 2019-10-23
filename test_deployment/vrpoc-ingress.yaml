@@ -4,12 +4,12 @@ metadata:
   name: vrpoc-ingress
   annotations:  
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"       # change this value
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer" # Must be the name of the issuer you set up
 spec:
   tls:
   - hosts:
     - vrpoc.litpoc.com
-    secretName: letsencrypt-prod                              # change this value
+    secretName: letsencrypt-prod # Must be unique per ingress resource 
   rules:
   - host: vrpoc.litpoc.com
     http:
