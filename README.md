@@ -5,8 +5,10 @@ Using [this article](https://www.digitalocean.com/community/tutorials/how-to-set
 
 ---
 
-### The article linked above, but converted to markdown
+## The article linked above, but converted to markdown:
 Just in case they change anything...
+
+---
 
 ```
 !
