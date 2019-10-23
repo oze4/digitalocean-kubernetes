@@ -42,7 +42,7 @@ spec:
   tls:
   - hosts:
     - echo.example.com # <-------------------------------------------- #### CHANGE THIS TO YOUR DOMAIN ####
-    secretName: letsencrypt-prod # <----------------------------------- ####** THIS MUST BE UNIQUE PER INGRESS!!! **####
+    secretName: letsencrypt-prod # <---------------------------------- ####** THIS MUST BE UNIQUE PER INGRESS!!! **####
   rules:
   - host: echo.example.com # <---------------------------------------- #### CHANGE THIS TO YOUR DOMAIN ####
     http:
