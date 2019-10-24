@@ -11,6 +11,7 @@ spec:
         role: mongo
         environment: ost-mongo-00
     spec:
+      serviceAccountName: cluster-pod-node-reader
       terminationGracePeriodSeconds: 10
       containers:
         - name: mongo
@@ -26,7 +27,6 @@ spec:
               mountPath: /data/db
         - name: mongo-sidecar
           image: cvallance/mongo-k8s-sidecar
-          serviceAccountName: cluster-pod-node-reader
           env:
             - name: MONGO_SIDECAR_POD_LABELS
               value: "role=mongo,environment=ost-mongo-00"
