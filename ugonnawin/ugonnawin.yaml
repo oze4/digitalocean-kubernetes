@@ -36,26 +36,26 @@ spec:
           value: 
         - name: CLIENT_SECRET
           value: 
-		    - name: SIGNING_SECRET
-		      value: 
-		    - name: VERIFICATION_TOKEN
-		      value: 
-		    - name: INCOMING_WEB_HOOK_URL
-		      value: 
-		    - name: OAUTH_ACCESS_TOKEN
-		      value: 
-		    - name: BOT_OAUTH_ACCESS_TOKEN
-		      value: 
-		    - name: OPENWEATHERMAP_API_KEY
-		      value: 
-		    - name: OPENWEATHERMAP_BASE_URL
-		      value: 
-		    - name: MONGO_CONNECTION_STRING
-		      value: 
-		    - name: MONGO_DATABASE
-		      value:
-		    - name: MONGO_COLLECTION
-		      value:
+	- name: SIGNING_SECRET
+	  value: 
+	- name: VERIFICATION_TOKEN
+	  value: 
+	- name: INCOMING_WEB_HOOK_URL
+	  value: 
+	- name: OAUTH_ACCESS_TOKEN
+	  value: 
+	- name: BOT_OAUTH_ACCESS_TOKEN
+	  value: 
+	- name: OPENWEATHERMAP_API_KEY
+	  value: 
+	- name: OPENWEATHERMAP_BASE_URL
+	  value: 
+	- name: MONGO_CONNECTION_STRING
+	  value: 
+	- name: MONGO_DATABASE
+	  value:
+	- name: MONGO_COLLECTION
+	  value:
         ports:
         - containerPort: 80  
 ---
