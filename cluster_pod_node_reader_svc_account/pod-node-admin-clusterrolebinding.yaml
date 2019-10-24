@@ -1,7 +1,7 @@
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: ClusterRoleBinding
 metadata:
-  name: pod-node-rbac
+  name: pod-node-admin-rbac
 subjects:
 - kind: ServiceAccount
   name: cluster-pod-node-reader
