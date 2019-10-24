@@ -9,7 +9,7 @@ spec:
   tls:
   - hosts:
     - ugonnawin.ostrike.com
-    secretName: ugonnawincert # Must be unique per ingress resource 
+    secretName: ugonnawincert
   rules:
   - host: ugonnawin.ostrike.com
     http:
