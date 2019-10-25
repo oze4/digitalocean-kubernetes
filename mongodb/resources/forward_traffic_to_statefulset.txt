@@ -1,1 +1,0 @@
-https://appscode.com/products/voyager/7.4.0/guides/ingress/http/statefulset-pod/
