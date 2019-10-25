@@ -244,8 +244,8 @@ spec:
               containerPort: 80
             - name: https
               containerPort: 443
-            - name: mongodb
-              containerPort: 27017
+            #- name: mongodb
+            #  containerPort: 27017
           livenessProbe:
             failureThreshold: 3
             httpGet:
