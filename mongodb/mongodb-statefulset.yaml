@@ -3,7 +3,7 @@ kind: StatefulSet
 metadata:
   name: mongo
 spec:
-  serviceName: "mongo-set"
+  serviceName: mongo-set
   replicas: 2
   template:
     metadata:
@@ -33,6 +33,8 @@ spec:
           env:
             - name: MONGO_SIDECAR_POD_LABELS
               value: "role=mongo,environment=ost-mongo-00"
+            # -name: KUBERNETES_MONGO_SERVICE_NAME
+            #  value: mongo-set
   volumeClaimTemplates:
   - metadata:
       name: mongo-persistent-storage
