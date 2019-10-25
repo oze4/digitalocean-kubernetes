@@ -13,5 +13,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: mongo
+          serviceName: mongo-service
           servicePort: 27017
