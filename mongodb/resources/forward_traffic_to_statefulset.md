@@ -1,3 +1,5 @@
+Taken from: https://appscode.com/products/voyager/7.4.0/guides/ingress/http/statefulset-pod/
+
 Forward Traffic to all Pods of a StatefulSet
 
 There is the usual way of forwarding traffic to a Service matching a StatefulSet. Create a Service with the pods label selector as selector, and use the service name as Backend ServiceName.
