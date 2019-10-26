@@ -8,7 +8,8 @@
 
 # How-To:
 
-- ### First, make sure you have Prometheus set up!
+- Make sure you have Prometheus set up!
+- If you don't have Prometheus set up, [visit this Prometheus setup guide](https://github.com/oze4/digitalocean-kubernetes/tree/master/prometheus)
 - Download all of the ***YAML*** files that are in this directory to a folder on your computer
 - You do ***NOT*** need the `dashboard` directory for installation
 - Run: `kubectl apply --kustomize directory/you/saved/these/files`
