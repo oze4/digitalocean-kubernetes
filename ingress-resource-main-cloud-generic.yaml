@@ -19,8 +19,8 @@ spec:
     - name: https
       port: 443
       targetPort: https
-    - name: mongodb
-      port: 27017
-      targetPort: mongodb
+    #- name: mongodb
+    #  port: 27017
+    #  targetPort: mongodb
 
 ---
