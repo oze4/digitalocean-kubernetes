@@ -5,12 +5,12 @@ commonLabels:
   app.kubernetes.io/name: prometheus
   app.kubernetes.io/part-of: ingress-nginx
 resources:
-- role.yaml
-- service-account.yaml
-- role-binding.yaml
-- deployment.yaml
-- service.yaml
-- ingress.yaml
+- prometheus-role.yaml
+- prometheus-service-account.yaml
+- prometheus-role-binding.yaml
+- prometheus-deployment.yaml
+- prometheus-service.yaml
+- prometheus-ingress.yaml
 images:
 - name: prom/prometheus
   newTag: v2.3.2
