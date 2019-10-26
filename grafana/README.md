@@ -16,5 +16,3 @@
 - Run: `kubectl apply --kustomize directory/you/saved/these/files`
 - Login to Grafana with username/password: `admin/admin`
 - Once logged into Grafana, import the dashboard located in `/dashboard/dashboard.json`
-
-## Great success
