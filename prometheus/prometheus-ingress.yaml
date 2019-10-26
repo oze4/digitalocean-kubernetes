@@ -4,12 +4,12 @@ metadata:
   name: prometheus-ingress
   annotations:  
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer" # <--- Comment this line out if you're not using cert-manager
 spec:
   tls:
   - hosts:
     - prom.ostrike.com
-    secretName: promcert
+    secretName: promcert # <--- Comment this line out if you're not using cert-manager
   rules:
   - host: prom.ostrike.com
     http:
