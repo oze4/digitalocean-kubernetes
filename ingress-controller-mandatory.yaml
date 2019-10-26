@@ -21,7 +21,7 @@ metadata:
 data:
   proxy-protocol: "True"
   real-ip-header: "proxy_protocol"
-  #set-real-ip-from: "192.168.192.168"
+  set-real-ip-from: "10.138.204.137"
 
 ---
 kind: ConfigMap
