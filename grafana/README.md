@@ -2,7 +2,7 @@
 
 ### Please note, this setup assumes you are using an NGINX Ingress Controller!! 
 
-[If you want to expose Grafana via NodePorts, follow this article](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/).. It is worth noting that the paths supplied in the article above are incorrect - use this path instead github.com/kubernetes/ingress-nginx/tree/master/deploy
+[If you want to expose Grafana via NodePorts, follow this article](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/).. It is worth noting that the paths supplied in that article are incorrect - use this path instead github.com/kubernetes/ingress-nginx/tree/master/deploy
 
 ---
 
