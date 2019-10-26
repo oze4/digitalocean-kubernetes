@@ -18,6 +18,10 @@ metadata:
   labels:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
+data:
+  proxy-protocol: "True"
+  real-ip-header: "proxy_protocol"
+  #set-real-ip-from: "192.168.192.168"
 
 ---
 kind: ConfigMap
