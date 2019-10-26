@@ -13,7 +13,7 @@
 - Download all of the ***YAML*** files that are in this directory to a folder on your computer
 - You do ***NOT*** need the `dashboard` directory for installation
 - Run: `kubectl apply --kustomize directory/you/saved/these/files`
-- Login to Grafana with usernmae/password: `admin/admin`
+- Login to Grafana with username/password: `admin/admin`
 - Once logged into Grafana, import the dashboard located in `/dashboard/dashboard.json`
 
 ## Great success
