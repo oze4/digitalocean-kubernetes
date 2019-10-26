@@ -4,12 +4,12 @@ metadata:
   name: grafana-ingress
   annotations:  
     kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer" # <--- Comment this line out if you're not using cert-manager
 spec:
   tls:
   - hosts:
     - grafana.ostrike.com
-    secretName: grafanacert
+    secretName: grafanacert # <--- Comment this line out if you're not using cert-manager
   rules:
   - host: grafana.ostrike.com
     http:
