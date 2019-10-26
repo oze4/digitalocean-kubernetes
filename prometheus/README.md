@@ -1,7 +1,6 @@
 # How to Install Prometheus
 
 - ### Please note, this setup assumes you are using an NGINX Ingress Controller!! 
-- ### We expose Grafana via an Ingress Resource
 - ### We also have [`cert-manager`](https://github.com/jetstack/cert-manager) configured within the `prometheus-ingress.yaml` file - you can just comment that out if you do not use `cert-manager`
 
 We also have cert-manager configured within the grafana-ingress.yaml file - you can just comment that out if you do not use cert-manager
