@@ -15,5 +15,5 @@ spec:
     http:
       paths:
       - backend:
-          serviceName: grafana
+          serviceName: grafana-service
           servicePort: 3000
