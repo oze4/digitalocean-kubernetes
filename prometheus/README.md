@@ -1,6 +1,7 @@
 # How to Install Prometheus
 
-### Please note, this setup assumes you are using an NGINX Ingress Controller!! [If you want to expose Grafana via NodePorts, follow this article](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/)
+### Please note, this setup assumes you are using an NGINX Ingress Controller!! 
+#### [If you want to expose Prometheus via NodePorts, follow this article](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/), although you shouldn't need to expose Prometheus externally for this to work
 
 <small>It is worth noting that the paths supplied in the article above are incorrect - use this path instead github.com/kubernetes/ingress-nginx/tree/master/deploy</small>
 
