@@ -9,4 +9,4 @@
 
 - Download all of the ***YAML*** files that are in this directory to a folder on your computer
 - Run: `kubectl apply --kustomize directory/you/saved/these/files`
-- #### Go to the `grafana` directory at the root of this repo to configure dashboards for Prometheus
+- [Follow this guide](https://github.com/oze4/digitalocean-kubernetes/blob/master/grafana) to configure Grafana for Prometheus
