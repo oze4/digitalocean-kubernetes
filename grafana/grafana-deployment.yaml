@@ -9,7 +9,13 @@ spec:
       maxSurge: 1
       maxUnavailable: 1
     type: RollingUpdate
+  selector:
+    matchLabels:
+      app: grafana
   template:
+    metadata:
+      labels:
+        app: grafana
     spec:
       containers:
         - image: grafana/grafana
