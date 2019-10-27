@@ -59,14 +59,14 @@ spec:
         #- name: prometheus-storage-volume
         #  emptyDir: {}
   volumeClaimTemplates:
-    - metadata:
-        name: prometheus-storage-volume
-        labels:
-          app: prometheus-server
-      spec:
-        storageClassName: do-block-storage
-        accessModes:
-          - ReadWriteOnce
+  - metadata:
+      name: prometheus-storage-volume
+      labels:
+        app: prometheus-server
+    spec:
+      storageClassName: do-block-storage
+      accessModes:
+        - ReadWriteOnce
       resources:
         requests:
           storage: "5Gi"
