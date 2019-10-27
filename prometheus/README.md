@@ -7,7 +7,7 @@
 
 <h2 align="center">*** Important Notes: ***</h2>
 
-We expose Prometheus externally via an `Ingress` Resource. Prometheus does not have any feature which allows you to configure authentication.  If you would like to secure your exposed Prometheus instance, you can follow [this article](https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/#prerequisites) which outlines how to secure a service via `Basic Auth`
+We expose Prometheus externally via an `Ingress` Resource. Prometheus does not natively allow for any type of authentication configuration.  If you would like to secure your exposed Prometheus instance, you can follow [this article](https://docs.nginx.com/nginx/admin-guide/security-controls/configuring-http-basic-authentication/#prerequisites), which outlines how to secure a service via the Ingress Controller using `Basic Auth`
 
 [If you want to expose Prometheus via NodePorts, follow this article](https://kubernetes.github.io/ingress-nginx/user-guide/monitoring/), although you shouldn't need to expose Prometheus externally for this to work.. It is worth noting that the paths supplied in that article are incorrect - use this path instead `github.com/kubernetes/ingress-nginx/tree/master/deploy/prometheus`
 
