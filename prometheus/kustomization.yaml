@@ -8,7 +8,7 @@ resources:
 - prometheus-role.yaml
 - prometheus-service-account.yaml
 - prometheus-role-binding.yaml
-- prometheus-deployment.yaml
+- prometheus-stateful-set.yaml
 - prometheus-service.yaml
 - prometheus-ingress.yaml
 images:
