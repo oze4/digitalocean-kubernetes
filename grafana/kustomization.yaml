@@ -10,4 +10,4 @@ resources:
 - grafana-ingress.yaml
 images:
 - name: grafana/grafana
-  newTag: 6.1.6
+  newTag: 6.3.6 #6.1.6
