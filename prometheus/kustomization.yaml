@@ -13,7 +13,7 @@ resources:
 - prometheus-ingress.yaml
 images:
 - name: prom/prometheus
-  newTag: v2.13.1
+  newTag: v2.3.2
 configMapGenerator:
 - name: prometheus-configuration
   files:
