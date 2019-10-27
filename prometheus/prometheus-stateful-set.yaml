@@ -14,15 +14,15 @@ spec:
         app: prometheus-server
     spec:
       serviceAccountName: prometheus-server
-      #initContainers:
-      #- name: "init-chown-data"
-      #  image: debian:9
-      #  imagePullPolicy: Always
-      #  command: ["chown", "-R", "65534:65534", "/data"]
-      #  volumeMounts:
-      #  - name: prometheus-config-volume
-      #    mountPath: /data
-      #    subPath: ""
+      initContainers:
+      - name: "init-chown-data"
+        image: debian:9
+        imagePullPolicy: Always
+        command: ["chown", "-R", "65534:65534", "/data"]
+        volumeMounts:
+        - name: prometheus-storage-volume
+          mountPath: /data
+          subPath: ""
       containers:
         - name: prometheus
           image: prom/prometheus
