@@ -7,7 +7,7 @@ commonLabels:
 resources:
 - grafana-stateful-set.yaml
 - grafana-config-map.yaml
-- grafana-dashboards-config-map.yaml
+- grafana-dashboards-config-map.yaml # Dashboards for kube stats
 - grafana-service.yaml
 - grafana-ingress.yaml
 images:
