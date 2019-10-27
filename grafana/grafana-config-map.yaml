@@ -23,7 +23,7 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-notifications
+  name: grafana-notifiers
 ---
 apiVersion: v1
 kind: ConfigMap
