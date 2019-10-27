@@ -74,13 +74,12 @@ spec:
             timeoutSeconds: 30
             failureThreshold: 10
             periodSeconds: 10
-          # Define resource limits and requests of `50m` of CPU and `100Mi` of memory.
           resources:
             limits:
-              cpu: 50m
-              memory: 100Mi
+              cpu: 500m
+              memory: 2500Mi
             requests:
-              cpu: 50m
+              cpu: 100m
               memory: 100Mi
       # Define `configMap` volumes for the above ConfigMap files, and `volumeClaimTemplates` 
       # for Grafana's `2Gi` Block Storage data volume, which will be mounted to `/var/lib/grafana`.
