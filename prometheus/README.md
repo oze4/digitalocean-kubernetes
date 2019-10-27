@@ -2,7 +2,7 @@
 
 - #### Please note, this setup assumes you are using an NGINX Ingress Controller!! 
 - #### This setup also uses a `StatefulSet` to persist Prometheus data
-- #### Change the `[prometheus-stateful-set.yaml]spec.volumeClaimTemplates.spec.storageClassName` to fit your needs
+- #### Change the <br/>`[prometheus-stateful-set.yaml]spec.volumeClaimTemplates.spec.storageClassName` <br/>to fit your needs
 - #### We also have [`cert-manager`](https://github.com/jetstack/cert-manager) configured within the `prometheus-ingress.yaml` file - you can just comment that out if you do not use `cert-manager`
 
 <h2 align="center">*** Important Notes: ***</h2>
