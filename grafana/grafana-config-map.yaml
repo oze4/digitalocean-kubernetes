@@ -23,6 +23,11 @@ data:
 apiVersion: v1
 kind: ConfigMap
 metadata:
+  name: grafana-notifications
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
   name: grafana-datasources
   #labels:
   #  app.kubernetes.io/name: $APP_INSTANCE_NAME
