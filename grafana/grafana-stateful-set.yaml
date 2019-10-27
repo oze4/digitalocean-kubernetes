@@ -1,0 +1,107 @@
+apiVersion: apps/v1beta2
+kind: StatefulSet
+metadata:
+  name: grafana
+  namespace: ingress-nginx
+spec:
+  serviceName: grafana-service
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      #serviceAccountName: grafana
+      initContainers:
+          - name: "init-chmod-data"
+            image: debian:9
+            imagePullPolicy: "IfNotPresent"
+            command: ["chmod", "777", "/var/lib/grafana"]
+            volumeMounts:
+            - name: grafana-data
+              mountPath: "/var/lib/grafana"
+      restartPolicy: Always
+      containers:
+        - name: grafana
+          image: grafana/grafana
+          imagePullPolicy: Always
+          # Mount in all the previously defined ConfigMaps as `volumeMounts`
+          # as well as the Grafana data volume
+          volumeMounts:
+            - name: config
+              mountPath: "/etc/grafana/"
+            - name: dashboards
+              mountPath: "/var/lib/grafana/dashboards"
+            - name: datasources
+              mountPath: "/etc/grafana/provisioning/datasources/"
+            - name: dashboardproviders
+              mountPath: "/etc/grafana/provisioning/dashboards/"
+            - name: grafana-data
+              mountPath: "/var/lib/grafana"
+          ports:
+            #- name: service
+            #  containerPort: 80
+            #  protocol: TCP
+            - containerPort: 3000
+              protocol: TCP
+          # Set the `GF_SECURITY_ADMIN_USER` and `GF_SECURITY_ADMIN_PASSWORD` environment variables 
+          # using the Secret defined in `grafana-secret.yaml`
+          #env:
+          #  - name: GF_SECURITY_ADMIN_USER
+          #    valueFrom:
+          #      secretKeyRef:
+          #        name: $APP_INSTANCE_NAME-grafana
+          #        key: admin-user
+          #  - name: GF_SECURITY_ADMIN_PASSWORD
+          #    valueFrom:
+          #      secretKeyRef:
+          #        name: $APP_INSTANCE_NAME-grafana
+          #        key: admin-password
+          livenessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 60
+            timeoutSeconds: 30
+            failureThreshold: 10
+            periodSeconds: 10
+          # Define resource limits and requests of `50m` of CPU and `100Mi` of memory.
+          resources:
+            limits:
+              cpu: 50m
+              memory: 100Mi
+            requests:
+              cpu: 50m
+              memory: 100Mi
+      # Define `configMap` volumes for the above ConfigMap files, and `volumeClaimTemplates` 
+      # for Grafana's `2Gi` Block Storage data volume, which will be mounted to `/var/lib/grafana`.
+      volumes:
+        - name: config
+          configMap:
+            name: grafana-ini
+        - name: datasources
+          configMap:
+            name: grafana-datasources
+        - name: dashboardproviders
+          configMap:
+            name: grafana-dashboardproviders
+        - name: dashboards
+          configMap:
+            name: dashboards
+  volumeClaimTemplates:
+  - metadata:
+      name: grafana-data
+    spec:
+      storageClassName: do-block-storage
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: "2Gi"
