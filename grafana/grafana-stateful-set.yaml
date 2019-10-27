@@ -35,6 +35,8 @@ spec:
               mountPath: "/etc/grafana/"
             - name: dashboards
               mountPath: "/var/lib/grafana/dashboards"
+            - name: notifications
+              mountPath: "/etc/grafana/provisioning/notifications"
             - name: datasources
               mountPath: "/etc/grafana/provisioning/datasources/"
             - name: dashboardproviders
@@ -86,6 +88,9 @@ spec:
         - name: config
           configMap:
             name: grafana-ini
+        - name: notifications
+          configMap:
+            name: grafana-notifications
         - name: datasources
           configMap:
             name: grafana-datasources
