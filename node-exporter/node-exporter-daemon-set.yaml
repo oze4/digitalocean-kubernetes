@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: node-exporter
+    annotations:
+      prometheus.io/scrape: "true"
     spec:
       serviceAccountName: node-exporter
       containers:
