@@ -21,6 +21,8 @@ spec:
         # Use the `quay.io/coreos/kube-state-metrics:v1.5.0` container image
         image: quay.io/coreos/kube-state-metrics:v1.5.0
         imagePullPolicy: Always
+        args:
+          - '--namespace=ingress-nginx,default'
         ports:
         # `8080` is used to scrape Kubernetes object state metrics
         - name: http-metrics
