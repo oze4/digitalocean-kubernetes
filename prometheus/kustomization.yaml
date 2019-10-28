@@ -5,16 +5,15 @@ commonLabels:
   app.kubernetes.io/name: prometheus
   app.kubernetes.io/part-of: ingress-nginx
 resources:
-- prometheus-role.yaml
+- prometheus-config-map.yaml
 - prometheus-service-account.yaml
-- prometheus-role-binding.yaml
 - prometheus-stateful-set.yaml
 - prometheus-service.yaml
 - prometheus-ingress.yaml
 images:
 - name: prom/prometheus
   newTag: v2.13.1
-configMapGenerator:
-- name: prometheus-configuration
-  files:
-  - prometheus.yaml
+#configMapGenerator:
+#- name: prometheus-configuration
+#  files:
+#  - prometheus.yaml
