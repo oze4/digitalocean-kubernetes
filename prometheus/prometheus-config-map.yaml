@@ -252,14 +252,15 @@ data:
         - role: endpoints
           namespaces:
             names:
-            - ${NAMESPACE}
+            - ingress-nginx
+            - default
         scheme: http
         path_prefix: /
         timeout: 10s
         relabel_configs:
         - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_label_k8s_app]
           separator: ;
-          regex: ${NAMESPACE};alertmanager
+          regex: ingress-nginx;default;alertmanager
           replacement: $1
           action: keep
         - source_labels: [__meta_kubernetes_endpoint_port_name]
@@ -444,7 +445,7 @@ data:
         action: replace
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_label_k8s_app]
         separator: ;
-        regex: ${NAMESPACE};alertmanager
+        regex: ingress-nginx;default;alertmanager
         replacement: $1
         action: keep
       - source_labels: [__meta_kubernetes_namespace]
@@ -517,7 +518,7 @@ data:
         action: labelmap
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_name]
         separator: ;
-        regex: ${NAMESPACE};kubernetes
+        regex: ingress-nginx;default;kubernetes
         replacement: $1
         action: keep
       - source_labels: [__meta_kubernetes_endpoint_port_name]
@@ -540,7 +541,7 @@ data:
         action: labelmap
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_service_label_k8s_app]
         separator: ;
-        regex: ${NAMESPACE};kube-state-metrics
+        regex: ingress-nginx;default;kube-state-metrics
         replacement: $1
         action: keep
     - job_name: kubelet
@@ -587,7 +588,7 @@ data:
         action: replace
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_k8s_app]
         separator: ;
-        regex: ${NAMESPACE};node-exporter
+        regex: ingress-nginx;default;node-exporter
         replacement: $1
         action: keep
       - source_labels: [__meta_kubernetes_namespace]
@@ -629,7 +630,7 @@ data:
         action: replace
       - source_labels: [__meta_kubernetes_namespace, __meta_kubernetes_pod_label_k8s_app]
         separator: ;
-        regex: ${NAMESPACE};prometheus
+        regex: ingress-nginx;default;prometheus
         replacement: $1
         action: keep
       - source_labels: [__meta_kubernetes_namespace]
