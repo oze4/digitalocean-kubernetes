@@ -14,7 +14,7 @@ spec:
   - host: nodeexporter.ostrike.com
     http:
       paths:
-      - path: /http
+      - path: /metrics
         backend:
           serviceName: kube-state-metrics-service
           servicePort: 8080
