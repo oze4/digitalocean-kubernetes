@@ -1,10 +1,10 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: kube-state-metrics-deployment
+  name: kube-state-metrics
   namespace: ingress-nginx
   labels:
-    app: kube-state-metrics-deployment
+    app: kube-state-metrics
 spec:
   selector:
     matchLabels:
@@ -65,4 +65,4 @@ spec:
           - --memory=100Mi
           - --extra-memory=2Mi
           - --threshold=5
-          - --deployment=kube-state-metrics-deployment
+          - --deployment=kube-state-metrics
