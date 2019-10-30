@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Stateful
+metadata:
+ name: jenkins-ci
+spec:
+  replicas: 1
+  template:
+  metadata:
+   labels:
+    name: jenkins-ci
+  spec:
+   #imagePullSecrets:
+   # - name: regsecret
+   containers:
+   - name: jenkins-ci
+     imagePullPolicy: Always
+     image: jenkins/jenkins
+     ports:
+     - containerPort: 8080
+     - containerPort: 50000
+     readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 40
+      periodSeconds: 20
+     securityContext: 
+       privileged: true 
+     volumeMounts: 
+       - mountPath: /var/run
+         name: docker-sock 
+       - mountPath: /var/jenkins_home
+         name: jenkins-home 
+   volumes: 
+     - name: docker-sock
+       hostPath: 
+         path: /var/run
+     - name: jenkins-home
+       hostPath: 
+         path: /var/jenkins_home
+  volumeClaimTemplates:
+    - metadata:
+        name: jenkins-home
+      spec:
+        storageClassName: do-block-storage
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: "5Gi"
