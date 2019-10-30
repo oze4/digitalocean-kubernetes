@@ -1,0 +1,63 @@
+apiVersion: apps/v1beta2
+kind: StatefulSet
+metadata:
+  name: jenkins-ci
+spec:
+  replicas: 1
+  serviceName: jenkins-ci-service
+  selector:
+    matchLabels:
+      app: jenkins-ci
+  template:
+    metadata:
+      labels:
+        app: jenkins-ci
+    spec:
+      #imagePullSecrets:
+      # - name: regsecret
+      initContainers:
+        - name: "init-chown-data"
+          image: debian:9
+          imagePullPolicy: Always
+          command: ["chmod", "-R", "777", "/var/jenkins_home"]
+          volumeMounts:
+          - name: jenkins-home
+            mountPath: /var/jenkins_home
+      containers:
+        - name: jenkins-ci
+          imagePullPolicy: Always
+          image: jenkins/jenkins
+          ports:
+            - containerPort: 8080
+            - containerPort: 50000
+          readinessProbe:
+            tcpSocket:
+              port: 8080
+            initialDelaySeconds: 40
+            periodSeconds: 20
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - mountPath: /var/run
+              name: docker-sock
+            - mountPath: /var/jenkins_home
+              name: jenkins-home
+      volumes:
+        - name: docker-sock
+          hostPath:
+            path: /var/run
+        #- name: jenkins-home
+        #  hostPath:
+        #    path: /var/jenkins_home
+  volumeClaimTemplates:
+    - metadata:
+        name: jenkins-home
+        labels:
+          app: jenkins-ci
+      spec:
+          storageClassName: do-block-storage
+          accessModes:
+            - ReadWriteOnce
+          resources:
+            requests:
+              storage: "5Gi"
