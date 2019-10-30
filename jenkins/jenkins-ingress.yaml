@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: jenkins-ci-ingress
+  annotations:  
+    kubernetes.io/ingress.class: nginx
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer" # <--- Comment this line out if you're not using cert-manager
+spec:
+  tls:
+  - hosts:
+    - jenkinsci.ostrike.com
+    secretName: jenkinscicert # <--- Comment this line out if you're not using cert-manager
+  rules:
+  - host: jenkinsci.ostrike.com
+    http:
+      paths:
+      - backend:
+          serviceName: jenkins-ci-service
+          servicePort: 8080
